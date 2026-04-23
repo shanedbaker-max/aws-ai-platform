@@ -1,8 +1,29 @@
-﻿.env
+﻿# Terraform
 *.tfstate
-*.tfstate.backup
+*.tfstate.*
 .terraform/
+.terraform.lock.hcl
+*.tfvars
+.terraform.tfstate.lock.info
+
+# AWS
+.aws/
+credentials
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
 venv/
-.aws/
+.env
+
+# Lambda packages
+*.zip
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
