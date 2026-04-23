@@ -68,3 +68,8 @@ module "api_gateway" {
   lambda_orchestrator_arn             = module.lambda.orchestrator_function_arn
   lambda_orchestrator_function_name   = module.lambda.orchestrator_function_name
 }
+module "s3" {
+  source  = "./modules/s3"
+  project = var.project
+  env = var.environment
+}
