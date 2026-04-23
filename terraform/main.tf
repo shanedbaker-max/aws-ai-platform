@@ -73,3 +73,16 @@ module "s3" {
   project = var.project
   env = var.environment
 }
+# Bedrock module
+module "bedrock" {
+  source = "./modules/bedrock"
+
+  project                       = var.project
+  environment                   = var.environment
+  aws_region                    = var.aws_region
+  kb_source_bucket_arn          = module.s3.kb_source_bucket_arn
+  kb_source_bucket_name         = module.s3.kb_source_bucket_name
+  lambda_orchestrator_role_name = module.iam.lambda_orchestrator_role_name
+  kb_id                         = var.kb_id
+  kb_data_source_id             = var.kb_data_source_id
+}

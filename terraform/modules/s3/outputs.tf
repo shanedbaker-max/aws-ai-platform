@@ -5,3 +5,7 @@ output "kb_source_bucket_name" {
 output "kb_source_bucket_arn" {
   value = aws_s3_bucket.kb_source.arn
 }
+output "kb_source_bucket_id" {
+  value = aws_s3_bucket.kb_source.id
+}
+

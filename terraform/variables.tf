@@ -15,3 +15,14 @@ variable "project" {
   type        = string
   default     = "aiplatform"
 }
+variable "kb_id" {
+  type        = string
+  description = "Bedrock KB ID — set after console KB creation"
+  default     = ""
+}
+
+variable "kb_data_source_id" {
+  type        = string
+  description = "Bedrock data source ID — set after first apply with kb_id"
+  default     = ""
+}
