@@ -34,7 +34,7 @@ data "aws_caller_identity" "current" {}
 # IAM module
 module "iam" {
   source = "./modules/iam"
-  
+
   project     = var.project
   environment = var.environment
 }
@@ -42,7 +42,7 @@ module "iam" {
 # DynamoDB module
 module "dynamodb" {
   source = "./modules/dynamodb"
-  
+
   project     = var.project
   environment = var.environment
 }
@@ -50,10 +50,10 @@ module "dynamodb" {
 # Lambda module
 module "lambda" {
   source = "./modules/lambda"
-  
-  project                       = var.project
-  environment                   = var.environment
-  lambda_orchestrator_role_arn  = module.iam.lambda_orchestrator_role_arn
+
+  project                      = var.project
+  environment                  = var.environment
+  lambda_orchestrator_role_arn = module.iam.lambda_orchestrator_role_arn
   events_table_name            = module.dynamodb.events_table_name
   sessions_table_name          = module.dynamodb.sessions_table_name
   dashboard_table_name         = module.dynamodb.dashboard_table_name
@@ -62,16 +62,16 @@ module "lambda" {
 # API Gateway module
 module "api_gateway" {
   source = "./modules/api_gateway"
-  
-  project                             = var.project
-  environment                         = var.environment
-  lambda_orchestrator_arn             = module.lambda.orchestrator_function_arn
-  lambda_orchestrator_function_name   = module.lambda.orchestrator_function_name
+
+  project                           = var.project
+  environment                       = var.environment
+  lambda_orchestrator_arn           = module.lambda.orchestrator_function_arn
+  lambda_orchestrator_function_name = module.lambda.orchestrator_function_name
 }
 module "s3" {
   source  = "./modules/s3"
   project = var.project
-  env = var.environment
+  env     = var.environment
 }
 # Bedrock module
 module "bedrock" {

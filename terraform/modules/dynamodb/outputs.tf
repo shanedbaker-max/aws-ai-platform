@@ -27,3 +27,13 @@ output "dashboard_table_arn" {
   description = "ARN of the dashboard DynamoDB table"
   value       = aws_dynamodb_table.dashboard.arn
 }
+
+output "jobops_table_name" {
+  description = "Name of the JobOps DynamoDB table"
+  value       = aws_dynamodb_table.jobops.name
+}
+
+output "jobops_table_arn" {
+  description = "ARN of the JobOps DynamoDB table"
+  value       = aws_dynamodb_table.jobops.arn
+}

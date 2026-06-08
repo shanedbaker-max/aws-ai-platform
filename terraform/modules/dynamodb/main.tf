@@ -78,3 +78,30 @@ resource "aws_dynamodb_table" "dashboard" {
     Name = "${var.project}-${var.environment}-dashboard"
   }
 }
+
+# JobOps table - private job search command center records
+resource "aws_dynamodb_table" "jobops" {
+  name         = "${var.project}-${var.environment}-jobops"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "pk"
+  range_key    = "sk"
+
+  attribute {
+    name = "pk"
+    type = "S"
+  }
+
+  attribute {
+    name = "sk"
+    type = "S"
+  }
+
+  ttl {
+    attribute_name = "ttl"
+    enabled        = true
+  }
+
+  tags = {
+    Name = "${var.project}-${var.environment}-jobops"
+  }
+}

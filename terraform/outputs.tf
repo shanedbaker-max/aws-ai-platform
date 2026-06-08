@@ -1,4 +1,4 @@
-﻿output "account_id" {
+output "account_id" {
   description = "AWS account ID"
   value       = data.aws_caller_identity.current.account_id
 }
